@@ -1,0 +1,215 @@
+.pets {
+  grid-column: container-start / container-end;
+  background-color: var(--color-septenary);
+  padding: 5vh 0vw;
+
+  &__content {
+    &--title {
+      @extend %sec-heading;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    &--slider {
+      position: relative;
+      margin-left: auto;
+      margin-right: auto;
+      width: 97.4rem;
+
+      &__pre-btn,
+      &__nxt-btn {
+        border: none;
+        width: 0vw;
+        height: 0%;
+        position: absolute;
+        top: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        z-index: 8;
+      }
+
+      &__pre-btn {
+        left: -5rem;
+      }
+
+      &__nxt-btn {
+        right: -5rem;
+      }
+
+      &__pre-btn img,
+      &__nxt-btn img {
+        background-color: #f6f6f6;
+        border-radius: 50%;
+        padding: 1.5rem 1.2rem;
+        border: solid var(--color-primary) 0.25rem;
+      }
+
+      &__pre-btn:hover img,
+      &__nxt-btn:hover img {
+        opacity: 1;
+        background-color: var(--color-primary);
+      }
+
+      &__container::-webkit-scrollbar {
+        display: none;
+      }
+
+      &__container {
+        width: 100%;
+        display: flex;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        overflow-y: hidden;
+
+        &--card {
+          margin: 2rem 3rem;
+          flex: 0 0 auto;
+          width: 27.05rem;
+          height: 38.1rem;
+          background-color: #fafafa;
+          overflow: hidden;
+          transition: transform 0.2s ease-in-out;
+
+          &__image {
+            @extend %bg;
+          }
+
+          &__info {
+            padding-top: 1rem;
+            text-align: center;
+            &--name {
+              font-size: font-size(font-size-medium);
+              font-weight: font-weight(font-weight-regular);
+              letter-spacing: 0.1rem;
+              color: var(--color-quinary);
+              margin-bottom: 1rem;
+            }
+
+            &--link {
+              border: solid var(--color-quaternary) 0.2rem;
+              border-radius: 2rem;
+              font-size: font-size(font-size-regular);
+              padding: 0.8rem 3.2rem;
+              text-align: center;
+              color: var(--color-quinary);
+              position: relative;
+              z-index: 1;
+              transition: all 0.5s ease-in-out;
+            }
+
+            &--link:link::before,
+            &--link:visited::before {
+              content: "";
+              position: absolute;
+              top: 0;
+              left: 0;
+              height: 100%;
+              width: 100%;
+              background-color: var(--color-quaternary);
+              border-radius: inherit;
+              z-index: -1;
+              transform: scale(0);
+              transition: all 0.5s ease-in-out;
+            }
+
+            &--link:hover::before,
+            &--link:active::before {
+              transform: scale(1.02);
+            }
+          }
+        }
+
+        &--card:first-child {
+          margin-left: 1.2rem;
+        }
+
+        &--card:hover {
+          transform: scale(1.045);
+        }
+      }
+    }
+
+    &--link {
+      margin-top: 2.1rem;
+
+      text-align: center;
+
+      &__button {
+        background-color: var(--color-quaternary);
+        text-align: center;
+        border: none;
+        border-radius: 10rem;
+        color: var(--color-quinary);
+        padding: 1.1rem 3.4rem;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 1.6rem;
+        font-weight: font-weight(font-weight-light);
+        cursor: pointer;
+        font-family: "Tinos", serif;
+      }
+    }
+  }
+
+  //*-*-*-*-*-*-*-*-*-*-- The 1100px Mark Break Point *-*-*-*-*-*-*-*-*-*-*
+  @media only screen and (max-width: 1150px) {
+    &__content {
+      &--slider {
+        width: 64rem;
+
+        &__container {
+          &--card {
+            margin-right: 2rem;
+          }
+        }
+      }
+    }
+  }
+
+  //*-*-*-*-*-*-*-*-*-*-- The 800px Mark Break Point *-*-*-*-*-*-*-*-*-*-*
+  @include media-tablet {
+    &__content {
+      &--slider {
+        width: 44rem;
+
+        &__container {
+          &--card {
+            margin-right: 1rem !important;
+            height: 30rem;
+            width: 18rem;
+
+            &__image {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //*-*-*-*-*-*-*-*-*-*-- The 600px Mark Break Point *-*-*-*-*-*-*-*-*-*-*
+  @include media-medium {
+    &__content {
+      &--slider {
+        width: 22rem;
+
+        &__pre-btn {
+          left: -2rem;
+        }
+
+        &__nxt-btn {
+          right: -2rem;
+        }
+
+        &__container {
+          &--card {
+            margin: 2rem 2rem !important;
+          }
+        }
+      }
+    }
+  }
+}

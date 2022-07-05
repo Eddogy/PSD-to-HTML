@@ -1,0 +1,65 @@
+.footer {
+  grid-column: container-start / container-end;
+  background-image: url("../img/footer/footer-bg.png");
+  @extend %bg;
+  display: flex;
+  column-gap: 15rem;
+  padding: 8vh 15vw;
+
+  &__content {
+    color: var(--color-septenary);
+
+    &--title {
+      @extend %sec-heading;
+      color: var(--color-septenary) !important;
+    }
+
+    &--info {
+      display: flex;
+      column-gap: 2rem;
+      margin-top: 2.5rem;
+
+      &__para {
+        color: #f1cdb3;
+        font-family: "Times New Roman", Times, serif;
+        font-size: font-size(font-size-regular);
+        line-height: 1.85rem;
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+
+  //*-*-*-*-*-*-*-*-*-*-- The 950px Mark Break Point *-*-*-*-*-*-*-*-*-*-*
+  @media only screen and (max-width: 950px) {
+    background-position: 70% 100% !important;
+  }
+
+  //*-*-*-*-*-*-*-*-*-*-- The 800px Mark Break Point *-*-*-*-*-*-*-*-*-*-*
+  @include media-tablet {
+    padding: 8vh 10vw;
+    column-gap: 5rem;
+    justify-content: center;
+  }
+
+  //*-*-*-*-*-*-*-*-*-*-- The 600px Mark Break Point *-*-*-*-*-*-*-*-*-*-*
+  @include media-medium {
+    padding: 6vh 0vw;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 3rem;
+    background-image: url("../img/footer/footer-bg-mobile.png");
+    background-position: top 500px !important;
+
+    &__content {
+      &--title {
+        text-shadow: 0.09rem 0.09rem black;
+      }
+
+      &--info {
+        text-shadow: 0.09rem 0.09rem black;
+        margin-top: 1.8rem;
+      }
+    }
+  }
+}

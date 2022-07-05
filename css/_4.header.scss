@@ -1,0 +1,245 @@
+.header {
+  grid-column: container-start / container-end;
+  // Dynamic Class => is toggled using JavaScript
+  // Middle Line
+  &.open .header__menu {
+    background-image: url("../img/nav/Paw-Closed-Transparent.png");
+    background-size: 4rem 4rem;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &.open .header__menu--line {
+    background-color: transparent;
+  }
+
+  &.open .header__menu--line::before {
+    transform: rotate(45deg);
+    background-color: var(--color-quaternary);
+  }
+
+  &.open .header__menu--line::after {
+    transform: rotate(-45deg);
+    background-color: var(--color-quaternary);
+  }
+
+  &.open .header__menu--line::before,
+  &.open .header__menu--line::after {
+    top: 0;
+  }
+
+  &__overlay {
+    width: 100%;
+    height: 100vh;
+    background-color: #ffd3ea;
+    background-image: linear-gradient(315deg, #ffd3ea 0%, #403020 74%);
+    position: fixed;
+    opacity: 0;
+    display: none;
+    z-index: 10;
+  }
+
+  &__nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    align-items: center;
+    overflow: hidden;
+
+    &--logo {
+      p {
+        padding-top: 1rem;
+        color: var(--color-primary);
+        font-size: 3.2rem;
+        font-weight: font-weight(font-weight-regular);
+        line-height: 2rem;
+      }
+
+      span {
+        color: var(--color-secondary);
+        font-size: 1rem;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: font-weight(font-weight-medium);
+        font-size: 1.3rem;
+        letter-spacing: 0.04rem;
+        padding-left: 0.1rem;
+      }
+    }
+
+    &--links {
+      display: flex;
+      padding-top: 1rem;
+
+      &__item {
+        a:visited,
+        a:link {
+          display: inline-block;
+          position: relative;
+          color: var(--color-primary);
+          margin-right: 2.2vw;
+          font-family: Arial, Helvetica, sans-serif;
+          font-weight: font-weight(font-weight-regular);
+          font-size: font-size(font-size-regular);
+          color: var(--color-secondary);
+          padding: 0 0.1rem;
+        }
+
+        a:hover,
+        a:active {
+          color: var(--color-septenary);
+        }
+
+        a:visited::after,
+        a:link::after {
+          content: "";
+          position: absolute;
+          width: 100%;
+          transform: scaleX(0);
+          height: 2px;
+          bottom: 0;
+          left: 0;
+          background-color: var(--color-primary);
+          transform-origin: bottom right;
+          transition: transform 0.25s ease-out;
+        }
+
+        a:visited:hover::after,
+        a:link:hover::after {
+          transform: scaleX(1);
+          transform-origin: bottom left;
+        }
+      }
+
+      &__item:last-child {
+        a:visited,
+        a:link {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  //*-*-*-*-*-*-*-*-*-*-- The 1300px Mark Break Point*-*-*-*-*-*-*-*-*-*-*
+  @include media-desktop {
+    &__nav {
+      &--logo {
+        p {
+          font-size: 3.4rem;
+        }
+
+        span {
+          font-size: 1.4rem;
+        }
+      }
+      &--links {
+        &__item {
+          a:link,
+          a:visited {
+            font-size: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+
+  //*-*-*-*-*-*-*-*-*-*-- The 800px Mark Break Point*-*-*-*-*-*-*-*-*-*-*
+
+  @include media-tablet {
+    &__nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 24rem;
+      height: 100vh;
+      line-height: initial;
+      flex-direction: column;
+      text-align: center;
+      z-index: 20;
+      transform: translate3d(-240px, 0, 0);
+      transition: transform 0.35s;
+      background: #1e130c; /* fallback for old browsers */
+      background: -webkit-linear-gradient(
+        to right,
+        #9a8478,
+        #1e130c
+      ); /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(
+        to top,
+        #9a8478,
+        #1e130c
+      ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+      &--logo {
+        margin-top: 5rem;
+      }
+
+      &--links {
+        height: 80%;
+        flex-direction: column;
+        justify-content: space-evenly;
+
+        &__item {
+          a:link,
+          a:visited {
+            font-size: 1.5rem;
+            margin-right: 0rem;
+          }
+
+          a:visited::after,
+          a:link::after {
+            margin-bottom: -0.5rem;
+          }
+        }
+      }
+    }
+
+    &.open nav {
+      transform: rotateY(0);
+    }
+
+    &__menu {
+      position: fixed;
+      height: 4rem;
+      width: 4rem;
+      top: 2rem;
+      right: 2rem;
+      padding: 2.5rem;
+      background-image: url("../img/nav/Paw-Opened-Transparent.png");
+      background-size: 4rem 4rem;
+      background-repeat: no-repeat;
+      background-position: center;
+      z-index: 20;
+      cursor: pointer;
+
+      &--line,
+      &--line::before,
+      &--line::after {
+        content: "";
+        position: absolute;
+        width: 2.8rem;
+        height: 0.2rem;
+        background-color: var(--color-quaternary);
+        top: 0.5rem;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        transition: all 0.5s ease-in-out;
+      }
+
+      &--line::before {
+        top: -2rem;
+      }
+
+      &--line::after {
+        top: 1.1rem;
+      }
+    }
+
+    &__overlay.open {
+      display: block;
+      opacity: 0.7;
+    }
+  }
+}

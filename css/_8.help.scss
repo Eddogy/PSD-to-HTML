@@ -1,0 +1,165 @@
+.help {
+  grid-column: container-start / container-end;
+  background-color: var(--color-senary);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  @extend %sec-padding;
+
+  &__title {
+    @extend %sec-heading;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-left: 15rem;
+    margin-right: 15rem;
+
+    &--icon {
+      margin: 0rem 4rem;
+
+      a {
+        img {
+          margin-top: 4rem;
+          width: 100%;
+          margin-left: 4rem;
+          margin-right: 4rem;
+        }
+      }
+
+      &__info {
+        font-size: font-size(font-size-medium);
+        color: var(--color-tertiary);
+        text-align: center;
+        letter-spacing: 0.1rem;
+      }
+    }
+
+    &--icon:nth-child(1) {
+      a {
+        img {
+          width: 45px;
+          height: 57px;
+        }
+      }
+    }
+
+    &--icon:nth-child(2) {
+      a {
+        img {
+          margin-top: 3.15rem;
+          width: 65px;
+          height: 65px;
+        }
+      }
+    }
+
+    &--icon:nth-child(3) {
+      a {
+        img {
+          margin-top: 3.65rem;
+          width: 58px;
+          height: 58px;
+        }
+      }
+    }
+
+    &--icon:nth-child(4) {
+      a {
+        img {
+          margin-top: 3.85rem;
+          width: 58px;
+          height: 55px;
+        }
+      }
+    }
+
+    &--icon:nth-child(5) {
+      a {
+        img {
+          margin-top: 3.5rem;
+          width: 30px;
+          height: 58px;
+        }
+      }
+    }
+
+    &--icon:nth-child(6) {
+      a {
+        img {
+          width: 64px;
+          height: 57px;
+        }
+      }
+    }
+
+    &--icon:nth-child(7) {
+      a {
+        img {
+          width: 58px;
+          height: 58px;
+        }
+      }
+    }
+
+    &--icon:nth-child(8) {
+      a {
+        img {
+          width: 65px;
+          height: 57px;
+        }
+      }
+    }
+
+    &--icon:nth-child(9) {
+      a {
+        img {
+          width: 54px;
+          height: 57px;
+        }
+      }
+    }
+
+    &--icon:hover {
+      animation: tilt-shaking 0.25s infinite;
+    }
+  }
+
+  //*-*-*-*-*-*-*-*-*-*-- The 800px Mark Break Point *-*-*-*-*-*-*-*-*-*-*
+  @include media-tablet {
+    &__content {
+      margin-left: 5rem;
+      margin-right: 5rem;
+    }
+  }
+
+  //*-*-*-*-*-*-*-*-*-*-- The 600px Mark Break Point *-*-*-*-*-*-*-*-*-*-*
+  @include media-medium {
+    &__content {
+      margin-left: 0rem;
+      margin-right: 0rem;
+    }
+  }
+}
+
+@keyframes tilt-shaking {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(0eg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}

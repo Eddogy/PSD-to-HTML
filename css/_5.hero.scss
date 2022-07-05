@@ -1,0 +1,119 @@
+.hero {
+  grid-column: container-start / container-end;
+  background-image: url("../img/hero/hero-bg.jpg");
+  @extend %bg;
+  height: 100vh;
+  padding: 7vh 15vw;
+
+  &__content {
+    position: absolute;
+    top: 35%;
+    left: default;
+    transform: translate(default, -35%);
+
+    &--title {
+      @extend %sec-heading;
+      color: var(--color-septenary) !important;
+      margin-bottom: calc(1.4rem + 1.4vh);
+      text-shadow: 0.09rem 0.09rem black;
+    }
+
+    &--para {
+      font-size: font-size(font-size-medium);
+      font-weight: font-weight(font-weight-regular);
+      font-family: Arial, Helvetica, sans-serif;
+      color: #cdcdcd;
+      line-height: 2.3rem;
+      margin-bottom: calc(1.9rem + 1.9vh);
+      text-shadow: 0.09rem 0.09rem black;
+    }
+
+    &--links {
+      --c: #e7b998;
+      background-color: var(--color-primary);
+      border-radius: 2rem;
+      width: 15rem;
+      padding: calc(0.4rem + 0.4vh);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      transition: 0.5s;
+
+      a:link,
+      a:visited {
+        font-size: font-size(font-size-regular);
+        color: black;
+      }
+    }
+
+    &--links span {
+      position: absolute;
+      width: 25%;
+      height: 100%;
+      background-color: var(--c);
+      transform: translateY(150%);
+      border-radius: 50%;
+      left: calc((var(--n) - 1) * 25%);
+      transition: 0.5s;
+      transition-delay: calc((var(--n) - 1) * 0.1s);
+      z-index: -1;
+    }
+
+    &--links:hover {
+      color: black;
+    }
+
+    &--links:hover span {
+      transform: translateY(0) scale(2);
+    }
+
+    &--links span:nth-child(1) {
+      --n: 1;
+    }
+
+    &--links span:nth-child(2) {
+      --n: 2;
+    }
+
+    &--links span:nth-child(3) {
+      --n: 3;
+    }
+
+    &--links span:nth-child(4) {
+      --n: 4;
+    }
+  }
+
+  //*-*-*-*-*-*-*-*-*-*-- The 800px Mark Break Point *-*-*-*-*-*-*-*-*-*-*
+  @include media-tablet {
+    padding: 0 15vw;
+    &__content {
+      top: 28%;
+      left: default;
+      transform: translate(default, -28%);
+      &--para {
+        width: 80%;
+        br {
+          display: none;
+        }
+      }
+    }
+  }
+
+  //*-*-*-*-*-*-*-*-*-*-- The 600px Mark Break Point *-*-*-*-*-*-*-*-*-*-*
+  @include media-medium {
+    background-position: 65% 100% !important;
+  }
+
+  //*-*-*-*-*-*-*-*-*-*-- The 600px Mark Break Point *-*-*-*-*-*-*-*-*-*-*
+  @include media-small {
+    &__content {
+      &--title,
+      &--para,
+      &--links {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
