@@ -4,7 +4,7 @@
   // Middle Line
   &.open .header__menu {
     background-image: url("../img/nav/Paw-Closed-Transparent.png");
-    background-size: 4rem 4rem;
+    background-size: 5rem 5rem;
     background-repeat: no-repeat;
     background-position: center;
   }
@@ -175,6 +175,7 @@
       }
 
       &--links {
+        padding-top: 0rem;
         height: 80%;
         flex-direction: column;
         justify-content: space-evenly;
@@ -200,13 +201,13 @@
 
     &__menu {
       position: fixed;
-      height: 4rem;
-      width: 4rem;
+      height: 5rem;
+      width: 5rem;
       top: 2rem;
       right: 2rem;
       padding: 2.5rem;
       background-image: url("../img/nav/Paw-Opened-Transparent.png");
-      background-size: 4rem 4rem;
+      background-size: 5rem 5rem;
       background-repeat: no-repeat;
       background-position: center;
       z-index: 20;
@@ -217,7 +218,7 @@
       &--line::after {
         content: "";
         position: absolute;
-        width: 2.8rem;
+        width: 3.4rem;
         height: 0.2rem;
         background-color: var(--color-quaternary);
         top: 0.5rem;
@@ -229,7 +230,7 @@
       }
 
       &--line::before {
-        top: -2rem;
+        top: -1.9rem;
       }
 
       &--line::after {
