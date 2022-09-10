@@ -32,13 +32,6 @@ body {
   font-family: "Tinos", serif;
   line-height: 1.9;
   background-color: var(--color-primary);
-  cursor: none;
-}
-
-@media screen and (max-width: 800px) {
-  body {
-    cursor: default;
-  }
 }
 
 .container {
@@ -916,36 +909,5 @@ a:visited {
   visibility: visible;
   opacity: 1;
   bottom: 4rem;
-}
-
-.cursor {
-  width: 1.98rem;
-  height: 2.02rem;
-  position: absolute;
-  z-index: 100;
-  background-image: url("../img/cursor/Normal.png");
-  background-size: 2rem;
-}
-
-@media screen and (max-width: 800px) {
-  .cursor {
-    background-image: none;
-  }
-}
-
-a,
-button,
-.scroll,
-.header__menu {
-  cursor: none !important;
-}
-
-@media screen and (max-width: 800px) {
-  a,
-  button,
-  .scroll,
-  .header__menu {
-    cursor: pointer !important;
-  }
 }
 /*# sourceMappingURL=main-style.css.map */

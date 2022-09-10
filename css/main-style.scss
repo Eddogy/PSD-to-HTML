@@ -89,28 +89,3 @@
   opacity: 1;
   bottom: 4rem;
 }
-
-//************************** Custom Cursor *******************
-.cursor {
-  width: 1.98rem;
-  height: 2.02rem;
-  position: absolute;
-  z-index: 100;
-  background-image: url("../img/cursor/Normal.png");
-  background-size: 2rem;
-
-  @include media-tablet {
-    background-image: none;
-  }
-}
-
-a,
-button,
-.scroll,
-.header__menu {
-  cursor: none !important;
-
-  @include media-tablet {
-    cursor: pointer !important;
-  }
-}

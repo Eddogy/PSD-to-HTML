@@ -10,11 +10,6 @@ body {
   font-family: "Tinos", serif;
   line-height: 1.9;
   background-color: var(--color-primary);
-  cursor: none;
-
-  @include media-tablet {
-    cursor: default;
-  }
 }
 
 .container {
