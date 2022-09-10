@@ -35,6 +35,12 @@ body {
   cursor: none;
 }
 
+@media screen and (max-width: 800px) {
+  body {
+    cursor: default;
+  }
+}
+
 .container {
   display: grid;
   grid-template-columns: [container-start] 1fr [center-start] repeat(6, [col-start] minmax(min-content, 16.66667rem) [col-end]) [center-end] 1fr [container-end];
@@ -921,10 +927,25 @@ a:visited {
   background-size: 2rem;
 }
 
+@media screen and (max-width: 800px) {
+  .cursor {
+    background-image: none;
+  }
+}
+
 a,
 button,
 .scroll,
 .header__menu {
   cursor: none !important;
+}
+
+@media screen and (max-width: 800px) {
+  a,
+  button,
+  .scroll,
+  .header__menu {
+    cursor: pointer !important;
+  }
 }
 /*# sourceMappingURL=main-style.css.map */
